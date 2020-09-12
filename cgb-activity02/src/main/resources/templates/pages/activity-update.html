@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>更新页面/The Update Page</h1>
+	<form th:action="@{/activity/submitUpdateActivity}">
+	<input type="hidden" name="id" th:value="${activity.id}"/>
+		<ul>
+			<li>title:</li>
+			<li>
+				<input type="text" name="title" th:value="${activity.title}"/>
+			</li>
+			
+			<li>category:</li>
+			<li>
+				<textarea rows="3" cols="30" name="category" th:text="${activity.category}"></textarea>
+			</li>
+			
+			<li>remark:</li>
+			<li>
+				<input type="text" name="remark" th:value="${activity.remark}"/>
+			</li>
+			
+			<li>state:</li>
+			<li>
+				<input type="text" name="state" th:value="${activity.state}"/>
+			</li>
+			
+			<li>createdUser:</li>
+			<li>
+				<input type="text" name="createdUser" th:value="${activity.createdUser}"/>
+			</li>
+			
+			<li>
+				<input type="submit" value="提交"/>
+			</li>
+		</ul>
+	</form>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<fieldset>
+		<legend>ajax表单请求</legend>
+		<form>
+			<input type="text" name="name" id="nameId" onblur="checkName()" onfocus="clearInput()"/>
+			<input type="button" value="save" onclick="saveName()"/>
+		</form>
+		<span id="nameResult"></span>
+	</fieldset>
+	
+	
+	
+	<script type="text/javascript">
+		function saveName(){
+			const xhr = new XMLHttpRequest()
+			xhr.onreadystatechange = function(){
+				if(xhr.readyState==4 && xhr.status==200){
+					document.getElementById("nameResult").innerHTML = xhr.responseText
+				}
+			}
+			xhr.open("POST","saveName",true)
+			xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded")
+			let name = document.forms[0].name.value
+			xhr.send(`name=${name}`)
+		}
+		
+		
+		function checkName(){
+			const xhr = new XMLHttpRequest()
+			xhr.onreadystatechange = function(){
+				if(xhr.readyState==4 && xhr.status==200){
+					document.getElementById("nameResult").innerHTML = `<font color='red'>${xhr.responseText}</font>`
+				}
+			}
+			let name = document.forms[0].name.value
+			xhr.open("GET",`checkName?name=${name}`,true)
+			xhr.send(null)
+		}
+		
+		
+		
+		let clearInput=()=>{
+			document.forms[0].name.value = ""
+			document.getElementById("nameResult").innerHTML = ""
+		}
+		
+	</script>
+</body>
+</html>

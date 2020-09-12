@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>添加商品/The Activity Add</h1>
+	<form th:action="@{/activity/submitCreateActivity}" method="post">
+		<ul>
+			<li>title:</li>
+			<li>
+				<input type="text" name="title"/>
+			</li>
+			
+			<li>category:</li>
+			<li>
+				<textarea rows="3" cols="30" name="category"></textarea>
+			</li>
+			
+			<li>remark:</li>
+			<li>
+				<input type="text" name="remark"/>
+			</li>
+			
+			<li>state:</li>
+			<li>
+				<input type="text" name="state"/>
+			</li>
+			
+			<li>createUser:</li>
+			<li>
+				<input type="text" name="createdUser"/>
+			</li>
+			
+			<li>
+				<input type="submit" value="submitCreateActivity"/>
+			</li>
+		</ul>
+	</form>
+</body>
+</html>

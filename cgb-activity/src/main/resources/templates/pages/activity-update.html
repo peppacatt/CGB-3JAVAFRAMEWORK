@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>添加商品</title>
+<style type="text/css">
+ul li {list-style-type: none}
+</style>
+</head>
+<body>
+   <h1>The Goods Add Page</h1>
+   <form th:action="@{/activity/submitUpdateActivityById}" method="post">
+   <input type="hidden" name="id" th:value="${activity.id}">
+      <ul>
+        <li>title:
+        <li><input type="text" name="title" th:value="${activity.title}">
+        <li>category:
+        <li><textarea rows="3" cols="30" name="category" th:text="${activity.category}"></textarea>
+        <li>remark:
+        <li><input type="text" name="ramark" th:value="${activity.remark}">
+        <li>state:
+        <li><input type="text" name="state" th:value="${activity.state}">
+        <li>createdUser:
+        <li><input type="text" name="createdUser" th:value="${activity.createdUser}">
+        
+        <li><input type="submit" value="submitUpdateActivityById">
+       </ul>
+   </form>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>商品</title>
+</head>
+<body>
+	<h1>The Goods Pages</h1>
+	<a th:href="@{http://localhost:8080/test-01/goods/toGoodCreate}">添加商品</a>
+	<table>
+		<thead>
+			<tr>
+				<th>id</th>
+				<th>name</th>
+				<th>remark</th>
+				<th>createdTime</th>
+				<th colspan="2">操作</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="g:${goods}">
+				<td th:text="${g.id}">id</td>
+				<td th:text="${g.name}">name</td>
+				<td th:text="${g.remark}">remark</td>
+				<td th:text="${#dates.format(g.createdTime, 'yyyy/MM/dd HH:mm')}">createdTime</td>
+				<td><a th:href="@{http://localhost:8080/test-01/goods/goodsDeleteById/{id}(id=${g.id})}">delete</a><td/>
+				<td><a th:href="@{http://localhost:8080/test-01/goods/toGoodUpdate/{id}(id=${g.id})}">修改</a><td/>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

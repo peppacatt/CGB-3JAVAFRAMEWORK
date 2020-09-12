@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>The Ajax 02 Page</h1>
+	<fieldset>
+		<legend>Ajax表单请求</legend>
+		<form action="">
+			<input type="text" name="name" id="nameId" onblur="doCheck()" /> <input
+				type="button" value="Save" onclick="doSave()">
+		</form>
+		<span id="resultId"></span>
+		<!-- 显示服务端响应结果 -->
+	</fieldset>
+
+
+
+	<script type="text/javascript">
+		function doCheck() {
+			const xhr = new XMLHttpRequest()
+			xhr.onreadystatechange = function(){
+				if(xhr.readyState==4 && xhr.status==200){
+					document.getElementById("resultId").innerHTML = `<font color='red'> + xhr`
+				}
+			}
+			let param = document.forms[0].name.value
+			xhr.open("GET",doCheck,true)
+			xhr.send()
+		}
+
+
+
+		function doSave() {//debugger,log,排除法
+			//1.创建XHR对象
+			var xhr = new XMLHttpRequest();
+			//2.定义XHR对象的状态监听函数
+			xhr.onreadystatechange = function() {
+				if (xhr.readyState == 4 && xhr.status == 200) {
+					document.getElementById("resultId").innerHTML = xhr.responseText;
+				}
+			}
+			//3.建立连接(Post)
+			xhr.open("POST", "doSave", true);
+			//post请求传参需要设置请求头
+			xhr.setRequestHeader("Content-Type",
+					"application/x-www-form-urlencoded");
+			//4.发送请求
+			var name = document.forms[0].name.value;//获取输入的name属性值
+			//方式1："name="+name
+			//方式2：`name=${name}`
+			//方式3：{"name":name}
+			xhr.send(`name=${name}`);//post请求的参数需要写到此位置
+		}
+	</script>
+</body>
+</html>

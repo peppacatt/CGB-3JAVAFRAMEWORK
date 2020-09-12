@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>商品</title>
+</head>
+<body>
+	<h1>商品页/Activity Home</h1>
+	<a th:href="@{/activity/createActivity}">添加商品</a>
+	<table>
+		<thead>
+			<tr>
+				<th>id</th>
+				<th>title</th>
+				<th>category</th>
+				<th>startTime</th>
+				<th>endTime</th>
+				<th>remark</th>
+				<th>state</th>
+				<th>createdTime</th>
+				<th>createdUser</th>
+				<th>操作</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="a:${activities}">
+				<td th:text="${a.id}">id</td>
+				<td th:text="${a.title}">id</td>
+				<td th:text="${a.category}">category</td>
+				<td th:text="${a.startTime}">startTime</td>
+				<td th:text="${a.endTime}">endTime</td>
+				<td th:text="${a.remark}">remark</td>
+				<td th:text="${a.state}">state</td>
+				<td th:text="${a.createdTime}">createdTime</td>
+				<td th:text="${a.createdUser}">createdUser</td>
+				<td> <a th:href="@{/activity/deleteActivityById/{id}(id=${a.id})}">删除</a> </td>
+				<td> <a th:href="@{/activity/updateActivityById/{id}(id=${a.id})}">修改</a> </td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>活动</title>
+<style>
+    /* style标签内只能书写css注释和css代码 */
+    table{
+        border:*2px solid red; /* 为表格添加边框 */
+        border-collapse: collapse; /* 设置边框合并 */
+        background-color: pink; /* 为表格设置背景颜色 */
+        width: 80%; /* 为表格设置宽度 */
+        /* margin-left: 15%; */
+        /* 设置表格的左外边距和右外边距自适应(保证两者始终相等) */
+        margin-left: auto;
+        margin-right: auto;
+    }
+    td,th{
+        border:2px solid gray; /* 为单元格添加边框 */
+        border-collapse: collapse; /* 设置边框合并 */
+        padding: 5px; /* 设置单元格边框和内容的距离(内边距) */
+    }
+    h1{
+        /* border: 2px solid blue; */
+        text-align: center; /* 设置元素中的内容水平居中 */
+    }   
+</style>
+</head>
+<body>
+	<h1>活动页/activity-home</h1>
+	<a th:href="@{http://localhost:8080/cgb-activity/activity/activityCreate}">添加活动</a>
+	<table>
+		<thead>
+			<tr>
+				<th>id</th>
+				<th>title</th>
+				<th>category</th>
+				<th>startTime</th>
+				<th>endTime</th>
+				<th>remark</th>
+				<th>state</th>
+				<th>createdTime</th>
+				<th>createdUser</th>
+		<!-- 	<th>操作</th> -->
+				<th>操作</th>
+
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="a:${activities}">
+				<td th:text="${a.id}">id</td>
+				<td th:text="${a.title}">title</td>
+				<td th:text="${a.category}">category</td>
+				<td th:text="${#dates.format(a.startTime, 'yyyy/MM/dd HH:mm')}">startTime</td>
+				<td th:text="${#dates.format(a.endTime, 'yyyy/MM/dd HH:mm')}">endTime</td>
+				<td th:text="${a.remark}">remark</td>
+				<td th:text="${a.state}">state</td>
+				<td th:text="${#dates.format(a.createdTime, 'yyyy/MM/dd HH:mm')}">createdTime</td>
+				<td th:text="${a.createdUser}">createdUser</td>
+				<td><a th:href="@{http://localhost:8080/cgb-activity/activity/activityDeleteById/{id}(id=${a.id})}">delete</a><td/>
+				<td><a th:href="@{http://localhost:8080/cgb-activity/activity/activityUpdateById/{id}(id=${a.id})}">修改</a><td/>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

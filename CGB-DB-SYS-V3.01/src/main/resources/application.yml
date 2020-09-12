@@ -1,0 +1,33 @@
+#server
+server:
+  port: 8080
+  servlet:
+   context-path: /
+  tomcat:
+    threads:
+      max: 128
+    uri-encoding: UTF-8
+#spring 
+spring:
+  datasource:
+    url: jdbc:mysql:///dbms?serverTimezone=GMT%2B8&characterEncoding=utf8
+    username: root
+    password: 123456
+  thymeleaf:
+    cache: false
+    prefix: classpath:/templates/pages/
+    suffix: .html
+#mybatis
+mybatis:
+  mapper-locations:
+  - classpath:/mapper/*/*.xml
+#log
+logging:
+  level:
+    com.cy: debug
+
+
+
+
+
+
