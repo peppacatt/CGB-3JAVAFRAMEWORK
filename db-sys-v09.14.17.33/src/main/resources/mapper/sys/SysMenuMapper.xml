@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cy.db.sys.dao.SysMenuDao">
+
+    <select id="findObjects" resultType="map">
+        SELECT c.*,p.name parentName FROM sys_menus
+        LEFT JOIN sys_menus p ON c.parentId=p.id
+    </select>
+
+    <insert id="insertObjects">
+        INSERT INTO sys_menus
+        VALUES (NULL, #{name}, #{url}, #{type}, #{sort}, #{note}, #{parentId}, #{permission}, NOW(), NOW(), #{createdUser}, #{modifiedUser})
+    </insert>
+
+    <update id="updateObjects">
+        UPDATE sys_menu
+        SET name=#{name}, url=#{url}, type=#{type}, sort=#{sort}, parentId=#{parentId}, permission=#{permission}, modifiedTime=NOW(), modifiedUser=#{modifiedUser}
+        WHERE id=#{id}
+    </update>
+
+</mapper>
