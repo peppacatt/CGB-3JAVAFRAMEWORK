@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cy.db.sys.dao.SysRoleDao">
+
+    <sql id="whereNameLike">
+        FROM sys_roles
+        <where>
+            <if test="name!=null and name!=''">
+                name LIKE CONCAT("%", #{name}, "%")
+            </if>
+        </where>
+    </sql>
+
+    <select id="findPageObjects" resultType="com.cy.db.sys.pojo.SysRole">
+        SELECT *
+        <include refid="whereNameLike"></include>
+        ORDER BY createdTime DESC
+        LIMIT #{startIndex}, #{pageSize}
+    </select>
+
+    <select id="getRowCount" resultType="long">
+        SELECT COUNT(*)
+        <include refid="whereNameLike"></include>
+    </select>
+
+    <resultMap id="sysRoleMenu" type="com.cy.db.sys.pojo.SysRoleMenu">
+        <id column="id" property="id"></id>
+        <result column="name" property="name"></result>
+        <result column="note" property="note"></result>
+
+        <collection column="id" property="menuIds" select="com.cy.db.sys.dao.SysRoleMenuDao.findMenuIdsByRoleId"></collection>
+    </resultMap>
+
+    <select id="findObjectById" resultMap="sysRoleMenu">
+        SELECT id, name, note FROM sys_roles
+        WHERE id=#{id}
+    </select>
+
+    <update id="updateObject">
+        UPDATE sys_roles
+        SET name=#{name}, note=#{note}, modifiedTime=#{modifiedTime}, modifiedUser=#{modifiedUser}
+        WHERE id=#{id}
+    </update>
+
+</mapper>
