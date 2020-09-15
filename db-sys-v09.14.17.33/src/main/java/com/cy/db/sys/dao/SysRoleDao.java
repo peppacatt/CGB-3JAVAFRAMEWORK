@@ -14,7 +14,7 @@ public interface SysRoleDao {
 
     long getRowCount(@Param("name") String name);
 
-    @Insert("INSERT INTO sys_roles (name,note,createdTime,modifiedTime,createdUser,modifiedUser) VALUES (#{name}, NOW(), NOW(), #{createdUser}, #{modifiedUser})")
+    @Insert("INSERT INTO sys_roles (name,note,createdTime,modifiedTime,createdUser,modifiedUser) VALUES (#{name}, #{note}, NOW(), NOW(), #{createdUser}, #{modifiedUser})")
     @Options(useGeneratedKeys = true, keyProperty = "id")
     int insertObjects(SysRole entity);
 

@@ -12,9 +12,9 @@ public interface SysRoleMenuDao {
     int deleteObjectsByMenuId(Integer menuId);
 
     @Delete("DELETE FROM sys_role_menus WHERE role_id=#{roleId}")
-    int deleteObjectsByRoleId(Integer roleId);
+    int deleteObjectsByRoleId(Long roleId);
 
-    int insertObjects(Integer roleId, Integer[] menuIds);
+    int insertObjects(Long roleId, Integer[] menuIds);
 
     @Select("SELECT menu_id FROM sys_role_menus WHERE role_id=#{roleId}")
     List<Integer> findMenuIdsByRoleId(Integer roleId);
