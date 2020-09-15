@@ -5,7 +5,7 @@
 <mapper namespace="com.cy.db.sys.dao.SysMenuDao">
 
     <select id="findObjects" resultType="map">
-        SELECT c.*,p.name parentName FROM sys_menus
+        SELECT c.*,p.name parentName FROM sys_menus c
         LEFT JOIN sys_menus p ON c.parentId=p.id
     </select>
 

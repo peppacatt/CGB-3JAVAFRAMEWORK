@@ -15,7 +15,7 @@ public interface SysMenuDao {
     List<Map<String,Object>> findObjects();
 
     @Select("SELECT COUNT(*) FROM sys_role_menus WHERE parentId=#{id}")
-    int ChildCount(Integer id);
+    int getChildCount(Integer id);
 
     @Delete("DELETE FROM sys_menu WHERE id=#{id}")
     int deleteObjects(Integer id);
