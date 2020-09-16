@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cy.db.sys.dao.SysUserDao">
+
+    <sql id="selectWhereUsername">
+        FROM sys_users
+        <where>
+            <if test="username!=null and username!=''">
+                username LIKE CONCAT("%", #{username}, "%")
+            </if>
+        </where>
+    </sql>
+
+    <resultMap id="sysUserDept" type="com.cy.db.sys.pojo.SysUserDept">
+        <id column="id" property="id"></id>
+        <association column="deptId" property="sysDept" select="com.cy.db.sys.dao.SysDeptDao.findById"></association>
+    </resultMap>
+
+    <select id="findPageObjects" resultMap="sysUserDept">
+        SELECT *
+        <include refid="selectWhereUsername"></include>
+        ORDER BY createdTime DESC
+        LIMIT #{startIndex}, #{pageSize}
+    </select>
+
+    <select id="getRowCount">
+        SELECT COUNT(*)
+        <include refid="selectWhereUsername"></include>
+    </select>
+
+    <insert id="insertObjects" parameterType="com.cy.db.sys.pojo.SysUser" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO sys_users
+        VALUES (NULL, #{username}, #{password}, #{salt}, #{email}, #{mobile}, #{valid}, #{deptId}, NOW(), NOW(), #{createdUser}, #{modifiedUser})
+    </insert>
+
+    <update id="updateObjects">
+        UPDATE sys_users
+        SET username=#{username}, email=#{email}, mobile=#{mobile}, deptId=#{deptId}, modifiedTime=#{modifiedTime}, modifiedUser=#{modifiedUser}
+        WHERE id=#{id}
+    </update>
+
+    <select id="findObjectById" resultMap="sysUserDept">
+        SELECT * FROM sys_users
+        WHERE id#{id}
+    </select>
+
+</mapper>
