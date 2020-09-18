@@ -8,11 +8,14 @@ import com.cy.db.sys.dao.SysUserRoleDao;
 import com.cy.db.sys.pojo.SysUser;
 import com.cy.db.sys.pojo.SysUserDept;
 import com.cy.db.sys.service.SysUserService;
+import org.apache.shiro.crypto.hash.SimpleHash;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 @Service
 public class SysUserServiceImpl implements SysUserService {
@@ -49,6 +52,11 @@ public class SysUserServiceImpl implements SysUserService {
         AssertUtils.isArgValid(entity.getUsername()==null || "".equals(entity.getUsername()), "用户名不能为空...");
         AssertUtils.isArgValid(entity.getPassword()==null || "".equals(entity.getPassword()), "密码不能为空...");
         AssertUtils.isArgValid(roleIds==null || roleIds.length==0, "必须为用户分配角色...");
+        String salt = UUID.randomUUID().toString();
+        SimpleHash sh = new SimpleHash("MD5", entity.getPassword(), salt, 1);
+        String hashedPassword = sh.toHex();
+        entity.setSalt(salt);
+        entity.setPassword(hashedPassword);
         int rows = sysUserDao.insertObjects(entity);
         sysUserRoleDao.insertObjects(entity.getId(), roleIds);
         return rows;
@@ -56,11 +64,25 @@ public class SysUserServiceImpl implements SysUserService {
 
     @Override
     public int updateObjects(SysUser entity, Integer[] roleIds) {
-        return 0;
+        AssertUtils.isArgValid(entity==null, "对象不能为空...");
+        AssertUtils.isArgValid(entity.getUsername()==null || "".equals(entity.getUsername()), "用户名不能为空...");
+        AssertUtils.isArgValid(roleIds==null || roleIds.length==0, "必须为用户分配权限...");
+        int rows = sysUserDao.updateObjects(entity);
+        AssertUtils.isServiceValid(rows==0, "该用户可能已经不存在...");
+        sysUserRoleDao.deleteObjectsByUserId(entity.getId());
+        sysUserRoleDao.insertObjects(entity.getId(), roleIds);
+        return rows;
     }
 
     @Override
     public Map<String, Object> findObjectById(Integer id) {
-        return null;
+        AssertUtils.isArgValid(id==null || id<1, "id值无效...");
+        SysUserDept user = sysUserDao.findObjectById(id);
+        AssertUtils.isServiceValid(user==null, "记录可能已经不存在...");
+        List<Integer> roleIds = sysUserRoleDao.findRoleIdsByUserId(id);
+        HashMap<String, Object> map = new HashMap<>();
+        map.put("user", user);
+        map.put("roleIds", roleIds);
+        return map;
     }
 }
