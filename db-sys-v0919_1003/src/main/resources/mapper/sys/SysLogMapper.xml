@@ -7,7 +7,7 @@
     <sql id="whereUsername">
         <where>
             <if test="username!=null and username!=''">
-                username LIKE CONCAT("%", ${username}, "%")
+                username LIKE CONCAT("%", #{username}, "%")
             </if>
         </where>
     </sql>

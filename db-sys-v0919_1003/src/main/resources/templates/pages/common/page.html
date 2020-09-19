@@ -22,12 +22,11 @@
     })
 
     function JumpPage() {
-        console.log("11111111111111111")
         let pageCurrent = $("#pageId").data("pageCurrent")
         let pageCount = $("#pageId").data("pageCount")
         let btnClass = $(this).prop("class")
         if(btnClass == "first"){
-            pageCurrent = 1
+			pageCurrent = 1
         }else if(btnClass == "pre" && pageCurrent>1){
             pageCurrent--
         }else if(btnClass == "next" && pageCurrent<pageCount){

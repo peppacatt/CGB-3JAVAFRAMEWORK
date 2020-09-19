@@ -51,10 +51,17 @@
 		$("#pageId").load("doPageUI", function () {
 			doGetObjects()
 		})
+
+		$(".input-group-btn").on("click", ".btn-search", showRecordsBySearchUsername)
 	})
 
 	function doGetObjects() {
-		$.getJSON("/log/doFindPageObjects", {pageCurrent: 1}, function (result) {
+		let pageCurrent = $("#pageId").data("pageCurrent")
+		if(!pageCurrent) pageCurrent = 1
+		let params = {pageCurrent: pageCurrent}
+		let username = $("#searchNameId").val()
+		if(username) params.username = username
+		$.getJSON("/log/doFindPageObjects", params, function (result) {
 			doResponseResult(result)
 		})
 	}
@@ -86,6 +93,11 @@
                 <td>${item.ip}</td>
                 <td>${item.time}</td>
                 </tr>`;
+	}
+
+	function showRecordsBySearchUsername() {
+		$("#pageId").data("pageCurrent", 1)
+		doGetObjects()
 	}
 </script>
 
