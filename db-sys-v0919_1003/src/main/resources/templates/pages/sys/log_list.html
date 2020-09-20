@@ -48,11 +48,20 @@
 </div>
 <script type="text/javascript">
 	$(function () {
+
 		$("#pageId").load("doPageUI", function () {
 			doGetObjects()
 		})
 
-		$(".input-group-btn").on("click", ".btn-search", showRecordsBySearchUsername)
+		$(".input-group-btn")
+				.on("click", ".btn-search", showRecordsBySearchUsername)
+
+				.on("click", ".btn-delete", deleteRecordsByIds)
+
+		$("#checkAll").change(changetBodyCheckboxState)
+
+		$("#tbodyId").on("change", "input:checkbox", changetHeadCheckboxState)
+
 	})
 
 	function doGetObjects() {
@@ -98,6 +107,45 @@
 	function showRecordsBySearchUsername() {
 		$("#pageId").data("pageCurrent", 1)
 		doGetObjects()
+	}
+
+	function deleteRecordsByIds() {
+		let idArray = getCheckedIds()
+		if(idArray.length==0) {
+			alert("请先选择")
+			return
+		}
+		if(!confirm("确定删除嘛???")) return
+		let params = {ids: idArray.toString()}
+		$.post("/log/doDeleteObjects", params, function (result) {
+			if(result.state==1){
+				alert(result.message)
+				doGetObjects()
+			}else{
+				alert(result.message)
+			}
+		})
+	}
+
+	function getCheckedIds() {
+		let idArray = []
+		$("#tbodyId input:checkbox:checked").each(function () {
+			idArray.push($(this).val())
+		})
+		return idArray
+	}
+
+	function changetBodyCheckboxState() {
+		let checked = $(this).prop("checked")
+		$("#tbodyId input:checkbox").prop("checked", checked)
+	}
+
+	function changetHeadCheckboxState() {
+		let flag = true
+		$("#tbodyId input:checkbox").each(function () {
+			flag = flag&&$(this).prop("checked")
+		})
+		$("#checkAll").prop("checked", flag)
 	}
 </script>
 

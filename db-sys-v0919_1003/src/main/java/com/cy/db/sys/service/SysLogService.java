@@ -7,4 +7,6 @@ public interface SysLogService {
 
     PageObject<SysLog> retrievePageObjects(String username, Long pageCurrent);
 
+    int deleteObjects(Integer... ids);
+
 }

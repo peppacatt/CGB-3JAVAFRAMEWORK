@@ -27,4 +27,10 @@ public class SysLogDaoTest {
         System.out.println("rowCount---"+rowCount);
     }
 
+    @Test
+    public void deleteObjects(){
+        int rows = sysLogDao.deleteObjects(172,171);
+        System.out.println("rows------"+rows);
+    }
+
 }

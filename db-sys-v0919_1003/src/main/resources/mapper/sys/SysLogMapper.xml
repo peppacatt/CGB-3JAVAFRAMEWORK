@@ -24,4 +24,21 @@
         <include refid="whereUsername"></include>
     </select>
 
+    <delete id="deleteObjects">
+        DELETE FROM sys_logs
+        <where>
+            <choose>
+                <when test="ids!=null and ids.length>0">
+                    id IN
+                    <foreach collection="ids" open="(" close=")" separator="," item="id">
+                        #{id}
+                    </foreach>
+                </when>
+                <otherwise>
+                    OR 1=2
+                </otherwise>
+            </choose>
+        </where>
+    </delete>
+
 </mapper>

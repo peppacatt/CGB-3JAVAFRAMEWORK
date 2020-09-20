@@ -18,4 +18,10 @@ public class SysLogController {
         return new JsonResult(sysLogService.retrievePageObjects(username, pageCurrent));
     }
 
+    @RequestMapping("doDeleteObjects")
+    public JsonResult doDeleteObjects(Integer... ids){
+        sysLogService.deleteObjects(ids);
+        return new JsonResult("delete ok");
+    }
+
 }

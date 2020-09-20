@@ -13,4 +13,6 @@ public interface SysLogDao {
 
     long getRowCount(@Param("username") String username);
 
+    int deleteObjects(@Param("ids") Integer... ids);
+
 }
