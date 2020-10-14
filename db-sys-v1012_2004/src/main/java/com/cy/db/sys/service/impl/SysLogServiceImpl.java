@@ -3,7 +3,7 @@ package com.cy.db.sys.service.impl;
 import com.cy.db.common.bo.PageObject;
 import com.cy.db.common.exception.ServiceException;
 import com.cy.db.sys.dao.SysLogDao;
-import com.cy.db.sys.pojo.po.SysLog;
+import com.cy.db.common.po.SysLog;
 import com.cy.db.sys.service.SysLogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,5 +25,14 @@ public class SysLogServiceImpl implements SysLogService {
         long startIndex = (pageCurrent-1)*pageSize;
         List<SysLog> records = sysLogDao.findPageCurrentRecords(username, startIndex, pageSize);
         return new PageObject<>(pageSize, records, pageCurrent, rowCount);
+    }
+
+
+    @Override
+    public int deletePageObjectByIds(Integer... ids) {
+        if(ids.length<0 || ids==null) throw new IllegalArgumentException("传入的参数不合法");
+        int rows = sysLogDao.deleteObjectByIds(ids);
+        if(rows==0) throw new ServiceException("该记录可能已经不存在");
+        return rows;
     }
 }

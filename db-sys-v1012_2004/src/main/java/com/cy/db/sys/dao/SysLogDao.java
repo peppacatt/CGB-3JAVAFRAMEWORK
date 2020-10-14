@@ -1,6 +1,6 @@
 package com.cy.db.sys.dao;
 
-import com.cy.db.sys.pojo.po.SysLog;
+import com.cy.db.common.po.SysLog;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -12,4 +12,5 @@ public interface SysLogDao {
 
     List<SysLog> findPageCurrentRecords(String username, Long startIndex, Integer pageSize);
 
+    int deleteObjectByIds(Integer... ids);
 }
