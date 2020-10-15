@@ -7,4 +7,5 @@ public interface SysRoleMenuDao {
 
     int deleteRoleMenuObjectByMenuId(Integer id);
 
+    int saveRoleMenuByRoleId(Long id, Integer[] menuIds);
 }
