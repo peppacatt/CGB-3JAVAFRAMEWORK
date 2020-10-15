@@ -6,6 +6,6 @@
     <delete id="deleteRoleMenuObjectByMenuId">
         DELETE
         FROM sys_role_menus
-        WHERE menu_id={id}
+        WHERE menu_id=#{id}
     </delete>
 </mapper>

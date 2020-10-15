@@ -1,5 +1,7 @@
 package com.cy.db.sys.dao;
 
+import com.cy.db.common.po.Node;
+import com.cy.db.common.po.SysMenu;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -14,4 +16,9 @@ public interface SysMenuDao {
 
     int deleteCheckedMenuObject(Integer id);
 
+    List<Node> findZtreeMenuNodes();
+
+    int saveMenuObject(SysMenu entity);
+
+    int updateMenuObject(SysMenu entity);
 }

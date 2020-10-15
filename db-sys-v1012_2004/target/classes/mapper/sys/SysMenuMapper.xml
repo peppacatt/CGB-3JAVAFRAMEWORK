@@ -20,4 +20,21 @@
         WHERE id=#{id}
     </delete>
 
+    <select id="findZtreeMenuNodes" resultType="com.cy.db.common.po.Node">
+        SELECT id,name,parentId
+        FROM sys_menus
+    </select>
+
+    <insert id="saveMenuObject">
+        INSERT
+        INTO sys_menus
+        values (#{id},#{name},#{url},#{type},#{sort},#{note},#{parentId},#{permission},NOW(),NOW(),#{createdUser},#{modifiedUser})
+    </insert>
+
+    <update id="updateMenuObject">
+        UPDATE sys_menus
+        SET name=#{name},url=#{url},type=#{type},sort=#{sort},note=#{note},parentId=#{parentId},permission=#{permission},modifiedTime=NOW(),modifiedUser=#{modifiedUser}
+        WHERE id=#{id}
+    </update>
+
 </mapper>
