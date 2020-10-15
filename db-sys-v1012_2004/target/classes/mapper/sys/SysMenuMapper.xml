@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cy.db.sys.dao.SysMenuDao">
+
+    <select id="findMenuObject" resultType="map">
+        SELECT c.*,p.name parentName
+        FROM sys_menus c LEFT JOIN sys_menus p ON c.parentId=c.id
+    </select>
+
+    <select id="findChildMenuCount" resultType="int">
+        SELECT COUNT(*)
+        FROM sys_menus
+        WHERE parentId=#{id}
+    </select>
+
+    <delete id="deleteCheckedMenuObject">
+        DELETE FROM sys_menus
+        WHERE id=#{id}
+    </delete>
+
+</mapper>

@@ -66,7 +66,7 @@
         };
         // 绘制行
         target.renderRow = function(tr,item){
-        	debugger
+        	// debugger
         	tr.data("rowData",item);//item当前行记录
             $.each(options.columns, function(index, column) {
                 // 判断有没有选择列
@@ -192,7 +192,7 @@
                 error:function(xhr,textStatus){
                     var _errorMsg = '<tr><td colspan="'+options.columns.length+'"><div style="display: block;text-align: center;">'+xhr.responseText+'</div></td></tr>'
                     tbody.html(_errorMsg);
-                    debugger;
+                    // debugger;
                 },
             });
         }

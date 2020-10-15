@@ -2,15 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c3a4834e-7490-4b3a-8f75-63836ff305a0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/cy/db/common/web/GlobalExceptionHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cy/db/sys/controller/SysMenuController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cy/db/sys/dao/SysMenuDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cy/db/sys/dao/SysRoleMenuDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cy/db/sys/service/SysMenuService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cy/db/sys/service/impl/SysMenuServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/mapper/sys/SysMenuMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/mapper/sys/SysRoleMenuMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cy/db/sys/controller/SysLogController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cy/db/sys/controller/SysLogController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cy/db/sys/dao/SysLogDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cy/db/sys/dao/SysLogDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cy/db/sys/pojo/po/SysLog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cy/db/common/po/SysLog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cy/db/sys/service/SysLogService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cy/db/sys/service/SysLogService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cy/db/sys/service/impl/SysLogServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cy/db/sys/service/impl/SysLogServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/sys/SysLogMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/sys/SysLogMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/pages/sys/log_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/pages/sys/log_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/bower_components/treegrid/jquery.treegrid.extension.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/bower_components/treegrid/jquery.treegrid.extension.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/bower_components/treegrid/jquery.treegrid.extension.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/bower_components/treegrid/jquery.treegrid.extension.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -21,8 +22,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -49,6 +50,7 @@
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ExpandSpringBootJavaOptionsPanel" value="true" />
     <property name="RequestMappingsPanelOrder0" value="0" />
     <property name="RequestMappingsPanelOrder1" value="1" />
     <property name="RequestMappingsPanelWidth0" value="75" />
@@ -82,9 +84,10 @@
     </option>
   </component>
   <component name="RunManager">
-    <configuration name="DbSysV10122004Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+    <configuration name="动吧旅游管理系统" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="db-sys-v1012_2004" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.cy.db.DbSysV10122004Application" />
+      <option name="ALTERNATIVE_JRE_PATH" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -102,7 +105,8 @@
       <updated>1602504390794</updated>
       <workItem from="1602504393494" duration="2697000" />
       <workItem from="1602550687569" duration="13684000" />
-      <workItem from="1602636404013" duration="4669000" />
+      <workItem from="1602636404013" duration="13215000" />
+      <workItem from="1602721721796" duration="7487000" />
     </task>
     <servers />
   </component>
