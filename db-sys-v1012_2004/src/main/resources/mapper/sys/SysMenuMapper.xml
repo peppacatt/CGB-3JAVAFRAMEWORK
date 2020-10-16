@@ -28,6 +28,7 @@
     <insert id="saveMenuObject">
         INSERT
         INTO sys_menus
+        (name,url,type,sort,note,parentId,permission,createdTime,modifiedTime,createdUser,modifiedUser)
         values (NULL,#{name},#{url},#{type},#{sort},#{note},#{parentId},#{permission},NOW(),NOW(),#{createdUser},#{modifiedUser})
     </insert>
 

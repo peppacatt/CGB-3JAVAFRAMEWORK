@@ -32,4 +32,23 @@
         VALUES (#{name},#{note},NOW(),NOW(),#{createdUser},#{modifiedUser})
     </insert>
 
+    <resultMap id="SysRoleMenu" type="com.cy.db.common.po.SysRoleMenu">
+        <id column="id" property="id"></id>
+        <result column="name" property="name"></result>
+        <result column="note" property="note"></result>
+        <collection column="id" property="menuIds" select="com.cy.db.sys.dao.SysRoleMenuDao.findMenuIdsByRoleId"></collection>
+    </resultMap>
+
+    <select id="findRoleMenuObject" resultMap="SysRoleMenu">
+        SELECT id,name,note
+        FROM sys_roles
+        WHERE id=#{id}
+    </select>
+
+    <update id="updateRoleObject">
+        UPDATE sys_roles
+        SET name=#{name}, note=#{note}, modifiedTime=NOW(), modifiedUser=#{modifiedUser}
+        WHERE id=#{id}
+    </update>
+
 </mapper>

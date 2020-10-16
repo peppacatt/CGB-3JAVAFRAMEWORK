@@ -20,4 +20,16 @@
         </foreach>
     </insert>
 
+    <select id="findMenuIdsByRoleId" resultType="int">
+        SELECT menu_id
+        FROM sys_role_menus
+        WHERE role_id=#{id}
+    </select>
+
+    <delete id="deleteRoleMenuObjectByRoleId">
+        DELETE
+        FROM sys_role_menus
+        WHERE role_id=#{id}
+    </delete>
+
 </mapper>
