@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cy.db.sys.dao.SysUserDao">
+
+    <sql id="whereUsername">
+        FROM sys_users
+        <where>
+            <if test="username!=null and username!=''">
+                username LIKE CONCAT('%',#{username},'%')
+            </if>
+        </where>
+    </sql>
+
+    <select id="findRowCount" resultType="long">
+        SELECT COUNT(*)
+        <include refid="whereUsername"></include>
+    </select>
+
+    <resultMap id="SysUserDept" type="com.cy.db.common.po.SysUserDept">
+        <id column="id" property="id"></id>
+        <association column="deptId" property="sysDept" select="com.cy.db.sys.dao.SysDeptDao.findById"></association>
+    </resultMap>
+
+    <select id="findUserDeptRecords" resultMap="SysUserDept">
+        SELECT *
+        <include refid="whereUsername"></include>
+        ORDER BY createdTime DESC
+        LIMIT #{startIndex},#{pageSize}
+    </select>
+
+    <update id="updateValidById">
+        UPDATE sys_users
+        SET valid=#{valid}, modifiedTime=NOW(), modifiedUser=#{admin}
+        WHERE id=#{id}
+    </update>
+
+    <insert id="saveUserObject" useGeneratedKeys="true" keyProperty="id">
+        INSERT
+        INTO sys_users
+        (username,password,salt,email,mobile,valid,deptId,createdTime,modifiedTime,createdUser,modifiedUser)
+        VALUES (#{username},#{password},#{salt},#{email},#{mobile},#{valid},#{deptId},NOW(),NOW(),#{createdUser},#{modifiedUser})
+    </insert>
+
+</mapper>

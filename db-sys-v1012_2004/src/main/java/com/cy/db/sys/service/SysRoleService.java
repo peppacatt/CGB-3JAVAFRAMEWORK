@@ -13,4 +13,5 @@ public interface SysRoleService {
     SysRoleMenu findRoleMenuObject(Integer id);
 
     int updateRoleObject(SysRole entity, Integer[] menuIds);
+
 }
