@@ -2,19 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c3a4834e-7490-4b3a-8f75-63836ff305a0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/cy/db/common/po/SysRole.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/cy/db/sys/controller/SysRoleController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/cy/db/sys/dao/SysRoleDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/cy/db/sys/service/SysRoleService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/cy/db/sys/service/impl/SysRoleServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/mapper/sys/SysRoleMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cy/db/common/po/SysDept.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cy/db/sys/controller/SysDeptController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cy/db/sys/dao/SysDeptDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cy/db/sys/service/SysDeptService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cy/db/sys/service/impl/SysDeptServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/mapper/sys/SysDeptMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cy/db/sys/dao/SysRoleMenuDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cy/db/sys/dao/SysRoleMenuDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/sys/SysMenuMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/sys/SysMenuMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/sys/SysRoleMenuMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/sys/SysRoleMenuMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/cy/db/sys/dao/SysRoleMenuDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cy/db/sys/dao/SysRoleMenuDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapper/sys/SysMenuMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/sys/SysMenuMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapper/sys/SysRoleMenuMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/sys/SysRoleMenuMapper.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -61,7 +55,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/com/cy/db/sys/service/impl" />
     <property name="project.structure.last.edited" value="Problems" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -70,8 +64,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\java\space\idea\CGB-3JAVAFRAMEWORK\db-sys-v1012_2004\src\main\resources\templates" />
-      <recent name="D:\java\space\idea\CGB-3JAVAFRAMEWORK\db-sys-v1012_2004\src\main\resources\static" />
+      <recent name="D:\java\space\idea\CGB-3JAVAFRAMEWORK\db-sys-v1012_2004\src\main\java\com\cy\db\sys\service\impl" />
+      <recent name="D:\java\space\idea\CGB-3JAVAFRAMEWORK\db-sys-v1012_2004\src\main\java\com\cy\db\sys\service" />
+      <recent name="D:\java\space\idea\CGB-3JAVAFRAMEWORK\db-sys-v1012_2004\src\main\resources\mapper\sys" />
+      <recent name="D:\java\space\idea\CGB-3JAVAFRAMEWORK\db-sys-v1012_2004\src\main\java\com\cy\db\sys\dao" />
+      <recent name="D:\java\space\idea\CGB-3JAVAFRAMEWORK\db-sys-v1012_2004\src\main\java\com\cy\db\sys\controller" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -111,7 +108,7 @@
       <workItem from="1602636404013" duration="13215000" />
       <workItem from="1602721721796" duration="7487000" />
       <workItem from="1602773586019" duration="9815000" />
-      <workItem from="1602807795743" duration="10929000" />
+      <workItem from="1602807795743" duration="12838000" />
     </task>
     <servers />
   </component>
