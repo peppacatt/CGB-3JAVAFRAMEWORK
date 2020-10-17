@@ -11,7 +11,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.DigestUtils;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 @Service
@@ -57,5 +59,27 @@ public class SysUserServiceImpl implements SysUserService {
         if(row==0) throw new ServiceException("记录可能已经不存在");
         sysUserRoleDao.saveUserRoleObjectByUserId(entity.getId(), roleIds);
         return row;
+    }
+
+    @Override
+    public int updateUser(SysUser entity, Integer[] roleIds) {
+        if(entity==null) throw new IllegalArgumentException("传入的对象不能为空");
+        if(roleIds==null||roleIds.length==0) throw new IllegalArgumentException("必须为用户分配角色");
+        int row = sysUserDao.updateUser(entity);
+        if(row==0) throw new ServiceException("记录可能已经不存在");
+        sysUserRoleDao.deleteUserRoleObjectByUserId(entity.getId());
+        sysUserRoleDao.saveUserRoleObjectByUserId(entity.getId(), roleIds);
+        return row;
+    }
+
+    @Override
+    public Map<String, Object> findUserById(Integer id) {
+        if(id==null||id<1) throw new IllegalArgumentException("传入的参数不合法");
+        SysUserDept userDept = sysUserDao.findUserDeptByUserId(id);
+        List<Integer> roleIds = sysUserRoleDao.fidRoleIdsByUserId(id);
+        Map<String, Object> map = new HashMap<>();
+        map.put("user", userDept);
+        map.put("roleIds", roleIds);
+        return map;
     }
 }

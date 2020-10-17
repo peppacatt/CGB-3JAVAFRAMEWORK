@@ -1,8 +1,11 @@
 package com.cy.db.sys.service;
 
 import com.cy.db.common.bo.PageObject;
+import com.cy.db.common.po.CheckBox;
 import com.cy.db.common.po.SysRole;
 import com.cy.db.common.po.SysRoleMenu;
+
+import java.util.List;
 
 public interface SysRoleService {
 
@@ -14,4 +17,5 @@ public interface SysRoleService {
 
     int updateRoleObject(SysRole entity, Integer[] menuIds);
 
+    List<CheckBox> findRoles();
 }

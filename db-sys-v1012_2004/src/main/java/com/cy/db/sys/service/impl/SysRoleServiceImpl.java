@@ -2,6 +2,7 @@ package com.cy.db.sys.service.impl;
 
 import com.cy.db.common.bo.PageObject;
 import com.cy.db.common.exception.ServiceException;
+import com.cy.db.common.po.CheckBox;
 import com.cy.db.common.po.SysRole;
 import com.cy.db.common.po.SysRoleMenu;
 import com.cy.db.sys.dao.SysRoleDao;
@@ -58,5 +59,10 @@ public class SysRoleServiceImpl implements SysRoleService {
         sysRoleMenuDao.deleteRoleMenuObjectByRoleId(entity.getId());
         sysRoleMenuDao.saveRoleMenuByRoleId(entity.getId(), menuIds);
         return rows;
+    }
+
+    @Override
+    public List<CheckBox> findRoles() {
+        return sysRoleDao.findRoles();
     }
 }

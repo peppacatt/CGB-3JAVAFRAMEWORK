@@ -18,4 +18,10 @@
             (#{id},#{roleId})
         </foreach>
     </insert>
+
+    <select id="fidRoleIdsByUserId" resultType="int">
+        SELECT role_id
+        FROM sys_user_roles
+        WHERE user_id=#{id}
+    </select>
 </mapper>

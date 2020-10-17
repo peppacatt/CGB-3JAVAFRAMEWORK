@@ -38,7 +38,7 @@ public class SysRoleController {
 
     @RequestMapping("/doFindRoles")
     public JsonResult doFindRoles(){
-        return new JsonResult("sysRoleService.findRoles()");
+        return new JsonResult(sysRoleService.findRoles());
     }
 
 }

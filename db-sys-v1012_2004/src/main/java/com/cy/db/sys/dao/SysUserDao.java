@@ -5,6 +5,7 @@ import com.cy.db.common.po.SysUserDept;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
+import java.util.Map;
 
 @Mapper
 public interface SysUserDao {
@@ -16,4 +17,8 @@ public interface SysUserDao {
     int updateValidById(Integer id, Byte valid, String admin);
 
     int saveUserObject(SysUser entity);
+
+    int updateUser(SysUser entity);
+
+    SysUserDept findUserDeptByUserId(Integer id);
 }

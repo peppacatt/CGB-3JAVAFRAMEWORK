@@ -43,4 +43,17 @@
         VALUES (#{username},#{password},#{salt},#{email},#{mobile},#{valid},#{deptId},NOW(),NOW(),#{createdUser},#{modifiedUser})
     </insert>
 
+    <update id="updateUser">
+        UPDATE sys_users
+        SET username=#{username},mobile=#{mobile},email=#{email},deptId=#{deptId},modifiedTime=NOW(),modifiedUser=#{modifiedUser}
+        WHERE id=#{id}
+    </update>
+
+
+    <select id="findUserDeptByUserId" resultMap="SysUserDept">
+        SELECT *
+        FROM sys_users
+        WHERE id=#{id}
+    </select>
+
 </mapper>

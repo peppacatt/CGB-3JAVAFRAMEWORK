@@ -51,4 +51,9 @@
         WHERE id=#{id}
     </update>
 
+    <select id="findRoles" resultType="com.cy.db.common.po.CheckBox">
+        SELECT *
+        FROM sys_roles
+    </select>
+
 </mapper>

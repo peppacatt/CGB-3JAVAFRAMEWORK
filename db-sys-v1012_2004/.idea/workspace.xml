@@ -2,18 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c3a4834e-7490-4b3a-8f75-63836ff305a0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/cy/db/common/po/SysUser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/cy/db/common/po/SysUserDept.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/cy/db/sys/controller/SysUserController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/cy/db/sys/dao/SysUserDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/cy/db/sys/dao/SysUserRoleDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/cy/db/sys/service/SysUserService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/cy/db/sys/service/impl/SysUserServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/mapper/sys/SysUserMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/mapper/sys/SysUserRoleMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/cy/db/common/po/CheckBox.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/cy/db/sys/controller/SysRoleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cy/db/sys/controller/SysRoleController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cy/db/sys/controller/SysUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cy/db/sys/controller/SysUserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cy/db/sys/dao/SysRoleDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cy/db/sys/dao/SysRoleDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cy/db/sys/dao/SysUserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cy/db/sys/dao/SysUserDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cy/db/sys/dao/SysUserRoleDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cy/db/sys/dao/SysUserRoleDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/cy/db/sys/service/SysRoleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cy/db/sys/service/SysRoleService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cy/db/sys/service/SysUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cy/db/sys/service/SysUserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cy/db/sys/service/impl/SysRoleServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cy/db/sys/service/impl/SysRoleServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cy/db/sys/service/impl/SysUserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cy/db/sys/service/impl/SysUserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/sys/SysRoleMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/sys/SysRoleMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/sys/SysUserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/sys/SysUserMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/sys/SysUserRoleMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/sys/SysUserRoleMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cy/db/sys/controller/SysRoleController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cy/db/sys/controller/SysRoleController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cy/db/sys/controller/SysUserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cy/db/sys/controller/SysUserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cy/db/sys/service/impl/SysUserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cy/db/sys/service/impl/SysUserServiceImpl.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -24,8 +29,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -35,9 +40,9 @@
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
-        <option name="localRepository" value="E:\java\space\maven\localRepo" />
-        <option name="mavenHome" value="E:/software/apache-maven-3.6.3" />
-        <option name="userSettingsFile" value="E:\software\apache-maven-3.6.3\conf\settings.xml" />
+        <option name="localRepository" value="D:\java\space\maven\localRepo" />
+        <option name="mavenHome" value="D:/software/apache-maven-3.6.3" />
+        <option name="userSettingsFile" value="D:\software\apache-maven-3.6.3\conf\settings.xml" />
       </MavenGeneralSettings>
     </option>
     <option name="importingSettings">
@@ -60,7 +65,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/com/cy/db/sys/service/impl" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Problems" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -115,6 +120,7 @@
       <workItem from="1602773586019" duration="9815000" />
       <workItem from="1602807795743" duration="13432000" />
       <workItem from="1602856403606" duration="7688000" />
+      <workItem from="1602896844906" duration="7435000" />
     </task>
     <servers />
   </component>
